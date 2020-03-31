@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-LABEL AUTHOR=Junv<wahyd4@gmail.com>
-
 WORKDIR /app
 
 ENV RPC_SECRET=""
@@ -19,7 +17,7 @@ RUN adduser -D -u 1000 junv \
   && apk add runit shadow wget bash curl openrc gnupg aria2 tar --no-cache \
   && curl https://getcaddy.com | bash -s personal \
   && filebrowser_version=v2.0.16 \
-  && platform=linux-amd64 \
+  && platform=linux-arm64 \
   && wget -N https://github.com/filebrowser/filebrowser/releases/download/${filebrowser_version}/${platform}-filebrowser.tar.gz \
   && tar -zxvf ${platform}-filebrowser.tar.gz \
   && rm -rf ${platform}-filebrowser.tar.gz \
